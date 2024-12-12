@@ -12,6 +12,10 @@ return {
         "tailwindcss-language-server",
         "typescript-language-server",
         "css-lsp",
+        "emmet-ls",
+        "phpactor",
+        "php-cs-fixer",
+        "phpcs",
       })
     end,
   },
@@ -24,6 +28,17 @@ return {
       ---@type lspconfig.options
       servers = {
         cssls = {},
+        emmet_ls = {
+          capabilities = vim.lsp.protocol.make_client_capabilities(),
+          filetypes = { "html", "css", "javascript", "javascriptreact", "typescriptreact", "vue" },
+          init_options = {
+            html = {
+              options = {
+                ["bem.enabled"] = true,
+              },
+            },
+          },
+        },
         tailwindcss = {
           root_dir = function(...)
             return require("lspconfig.util").root_pattern(".git")(...)
