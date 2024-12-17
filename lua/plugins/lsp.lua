@@ -30,7 +30,7 @@ return {
         cssls = {},
         emmet_ls = {
           capabilities = vim.lsp.protocol.make_client_capabilities(),
-          filetypes = { "html", "css", "javascript", "javascriptreact", "typescriptreact", "vue" },
+          filetypes = { "html" },
           init_options = {
             html = {
               options = {
