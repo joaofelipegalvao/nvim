@@ -156,6 +156,7 @@ return {
       local actions = require("telescope.actions")
       local fb_actions = require("telescope").extensions.file_browser.actions
 
+      opts.defaults = opts.defaults or {}
       opts.defaults = vim.tbl_deep_extend("force", opts.defaults, {
         wrap_results = true,
         layout_strategy = "horizontal",
@@ -166,6 +167,7 @@ return {
           n = {},
         },
       })
+      opts.pickers = opts.pickers or {}
       opts.pickers = {
         diagnostics = {
           theme = "ivy",
@@ -175,6 +177,7 @@ return {
           },
         },
       }
+      opts.extensions = opts.extensios or {}
       opts.extensions = {
         file_browser = {
           theme = "dropdown",
@@ -219,7 +222,9 @@ return {
           winblend = vim.o.pumblend,
         },
         documentation = {
-          winblend = vim.o.pumblend,
+          window = {
+            winblend = vim.o.pumblend,
+          },
         },
       },
       signature = {
