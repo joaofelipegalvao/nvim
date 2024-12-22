@@ -156,7 +156,6 @@ return {
       local actions = require("telescope.actions")
       local fb_actions = require("telescope").extensions.file_browser.actions
 
-      opts.defaults = opts.defaults or {}
       opts.defaults = vim.tbl_deep_extend("force", opts.defaults, {
         wrap_results = true,
         layout_strategy = "horizontal",
@@ -210,5 +209,24 @@ return {
       require("telescope").load_extension("fzf")
       require("telescope").load_extension("file_browser")
     end,
+  },
+
+  {
+    "saghen/blink.cmp",
+    opts = {
+      completion = {
+        menu = {
+          winblend = vim.o.pumblend,
+        },
+        documentation = {
+          winblend = vim.o.pumblend,
+        },
+      },
+      signature = {
+        window = {
+          winblend = vim.o.pumblend,
+        },
+      },
+    },
   },
 }
