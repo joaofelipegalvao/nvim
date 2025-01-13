@@ -79,7 +79,7 @@ return {
         desc = "Lists files in your current working directory, respects .gitignore",
       },
       {
-        ";r",
+        ";l",
         function()
           local builtin = require("telescope.builtin")
           builtin.live_grep({
