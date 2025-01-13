@@ -101,8 +101,8 @@ return {
         highlight = {
           groups = {
             -- Ajuste os grupos de destaque para usar as cores do tokyonight
-            InclineNormal = { guibg = colors.blue0, guifg = colors.fg_float },
-            InclineNormalNC = { guifg = colors.fg_dark, guibg = colors.bg },
+            InclineNormal = { guibg = "#25285B", guifg = "#FFFFFF" },
+            InclineNormalNC = { guifg = "#494EB6", guibg = "#FFFFFF" },
           },
         },
         window = { margin = { vertical = 0, horizontal = 1 } },
@@ -127,6 +127,16 @@ return {
     "nvim-lualine/lualine.nvim",
     opts = function(_, opts)
       local LazyVim = require("lazyvim.util")
+      -- Adiciona o ícone do sistema operacional
+      table.insert(opts.sections.lualine_z, {
+        function()
+          local os_icons = {
+            Linux = "", -- Ícone para Linux
+          }
+          local os_name = vim.loop.os_uname().sysname -- Detecta o sistema operacional
+          return os_icons[os_name] -- Retorna o ícone correspondente ou um padrão
+        end,
+      })
       opts.sections.lualine_c[4] = {
         LazyVim.lualine.pretty_path({
           length = 0,
@@ -137,6 +147,11 @@ return {
           modified_sign = "",
           readonly_icon = " 󰌾 ",
         }),
+      }
+      opts.sections.lualine_z = {
+        function()
+          return ""
+        end,
       }
     end,
   },
