@@ -9,7 +9,6 @@ return {
         "luacheck",
         "shellcheck",
         "shfmt",
-        "emmet-ls",
         "tailwindcss-language-server",
         "typescript-language-server",
         "css-lsp",
@@ -60,22 +59,7 @@ return {
             },
           },
         },
-        html = false,
-        emmet_ls = {
-          capabilities = (function()
-            local capabilities = vim.lsp.protocol.make_client_capabilities()
-            capabilities.textDocument.completion.completionItem.snippetSupport = true
-            return capabilities
-          end)(),
-          filetypes = { "html" },
-          init_options = {
-            html = {
-              options = {
-                ["bem.enabled"] = true,
-              },
-            },
-          },
-        },
+        html = {},
         yamlls = {
           settings = {
             yaml = {
