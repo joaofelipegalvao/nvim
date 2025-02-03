@@ -50,6 +50,7 @@ return {
 
   {
     "nvim-telescope/telescope.nvim",
+    enabled = false,
     dependencies = {
       {
         "nvim-telescope/telescope-fzf-native.nvim",
