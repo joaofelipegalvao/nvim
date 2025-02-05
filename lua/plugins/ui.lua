@@ -61,13 +61,9 @@ return {
   },
 
   {
-    "snacks.nvim",
-    opts = {
-      scroll = { enabled = false },
-    },
-    keys = {},
+    "nvim-neo-tree/neo-tree.nvim",
+    enabled = false,
   },
-
   -- buffer line
   {
     "akinsho/bufferline.nvim",
@@ -172,6 +168,21 @@ return {
   {
     "folke/snacks.nvim",
     opts = {
+      -- Configuração do LazyGit
+      lazygit = {
+        configure = true,
+        config = {
+          os = { editPreset = "nvim-remote" },
+          gui = {
+            nerdFontsVersion = "3",
+          },
+        },
+        win = {
+          style = "lazygit",
+        },
+      },
+
+      -- Configuração do Dashboard
       dashboard = {
         preset = {
           header = [[
@@ -181,8 +192,34 @@ return {
 ██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║
 ██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║
 ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝
-          ]],
+        ]],
         },
+      },
+
+      -- Configuração de outros recursos do snacks.nvim
+      scroll = { enabled = true },
+      statuscolumn = { enabled = true },
+      explorer = {
+        replace_netrw = true,
+      },
+      picker = {
+        sources = {
+          explorer = { enabled = true },
+        },
+      },
+    },
+    keys = {
+      { "<leader>e", "<cmd>lua require('snacks').explorer.open()<CR>", desc = "Open Snacks Explorer" },
+      {
+        "<leader>lg",
+        "<cmd>lua require('snacks.lazygit').open()<CR>",
+        desc = "Open LazyGit",
+      },
+      { "<leader>ll", "<cmd>lua require('snacks.lazygit').log()<CR>", desc = "Open LazyGit Log" },
+      {
+        "<leader>lf",
+        "<cmd>lua require('snacks.lazygit').log_file()<CR>",
+        desc = "Open LazyGit Log for Current File",
       },
     },
   },
