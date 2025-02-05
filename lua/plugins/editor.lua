@@ -47,10 +47,6 @@ return {
       },
     },
   },
-  {
-    "ibhagwan/fzf-lua",
-    enabled = false,
-  },
 
   {
     "nvim-telescope/telescope.nvim",
