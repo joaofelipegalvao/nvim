@@ -47,6 +47,10 @@ return {
       },
     },
   },
+  {
+    "ibhagwan/fzf-lua",
+    enabled = false,
+  },
 
   {
     "nvim-telescope/telescope.nvim",
@@ -54,6 +58,7 @@ return {
     dependencies = {
       {
         "nvim-telescope/telescope-fzf-native.nvim",
+        enabled = false,
         build = "make",
       },
       "nvim-telescope/telescope-file-browser.nvim",
